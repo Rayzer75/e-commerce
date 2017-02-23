@@ -1,0 +1,11 @@
+fs_core_about:
+    path:     /about
+    defaults: { _controller: FSCoreBundle:Default:about }
+    
+fs_core_contact:
+    path:     /contact
+    defaults: { _controller: FSCoreBundle:Default:contact }
+    
+fs_core_language:
+    path:	/
+    defaults: { _controller: FSCoreBundle:Default:setLocale }

@@ -1,0 +1,48 @@
+{% extends '::layout.html.twig' %}
+
+{% trans_default_domain 'FSCoreBundle' %}
+
+{% block content %}
+
+	<!-- Introduction Row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">{{ 'about_us'|trans }}</h1>
+			<div class="list-group">
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">{{ 'about.mission.title'|trans }}</h4>
+					<p class="list-group-item-text">{{ 'about.mission.description'|trans }}</p>
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">{{ 'about.large_selection.title'|trans }}</h4>
+					<p class="list-group-item-text">{{ 'about.large_selection.description'|trans }}</p>
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">{{ 'about.free_shipping.title'|trans }}</h4>
+					<p class="list-group-item-text">{{ 'about.free_shipping.description'|trans }}</p>
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">{{ 'about.customer.protection.title'|trans }}</h4>
+					<p class="list-group-item-text">{{ 'about.customer.protection.description'|trans }}</p>
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">{{ 'about.customer.service.title'|trans }}</h4>
+					<p class="list-group-item-text">{{ 'about.customer.service.description'|trans }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Team Members Row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header">{{ 'about.team'|trans }}</h2>
+		</div>
+		<div class="col-lg-4 col-sm-6 text-center">
+			<img class="img-circle img-responsive img-center" src="http://icon-icons.com/icons2/35/PNG/512/caucasian_head_man_person_people_avatar_2859.png" alt="John Smith">
+			<h3>John Smith
+				<small>{{ 'CEO'|trans }}</small>
+			</h3>
+		</div>
+	</div>
+{% endblock %}

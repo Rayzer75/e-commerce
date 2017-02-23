@@ -1,0 +1,100 @@
+{% import "FSPlatformBundle::macros.html.twig" as macros %}
+
+{% trans_default_domain 'app' %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{% block title %}{{ 'platform'|trans }}{% endblock %}</title>
+
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/css/flag-icon.min.css" rel="stylesheet">
+		{% stylesheets 'bundles/fsplatform/css/*' 'bundles/fscore/css/*' filter='cssrewrite,scssphp' %}
+		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		{% endstylesheets %}
+	</head>
+
+	<body>
+
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="{{ path('fs_platform_home') }}">{{ 'platform'|trans }}</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="{{ path('fs_core_language', {'language':'en'}) }}"><span class="flag-icon flag-icon-us"></span></a>
+						</li>
+						<li>
+							<a href="{{ path('fs_core_language', {'language':'fr'}) }}"><span class="flag-icon flag-icon-fr"></span></a>
+						</li>
+						<li>
+							<a href="{{ path('fs_core_about') }}">{{ 'about_us'|trans }}</a>
+						</li>
+						<li>
+							<a href="{{ path('fs_core_contact') }}">{{ 'contact'|trans }}</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<p class="navbar-btn">
+								<a href="{{ path('fos_user_profile_show') }}" class="btn btn-warning"><span class="glyphicon glyphicon-user"></span> {{ 'my.account'|trans }}</a>
+							</p>
+						</li>
+						<li>
+							<p class="navbar-btn">
+								<a href="{{ path('fs_cart_view') }}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> {{ 'my.cart'|trans }}</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
+
+		<!-- Page Content -->
+		<div class="container">
+
+			<div class="row">
+
+				{% block content %}
+				{% endblock %}
+
+			</div>
+		</div>
+
+		<div class="container">
+
+			<hr>
+
+			<!-- Footer -->
+			<footer>
+				<div class="row">
+					<div class="col-lg-12">
+						<p>&copy; {{ date()|date('Y') }} website.com</p>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		{% javascripts filter='jsqueeze' %}
+		{% endjavascripts %}
+
+	</body>
+</html>

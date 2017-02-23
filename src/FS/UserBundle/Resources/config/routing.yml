@@ -1,0 +1,11 @@
+fs_user_view_orders:
+    path:     /profile/orders
+    defaults: { _controller: FSUserBundle:Profile:viewOrders }
+    
+fs_user_reviews:
+    path:     /profile/reviews
+    defaults: { _controller: FSUserBundle:Profile:review }
+    
+fs_user_view_messages:
+    path:     /profile/messages
+    defaults: { _controller: FSUserBundle:Profile:viewMessages }

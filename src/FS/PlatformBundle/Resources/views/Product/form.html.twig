@@ -1,0 +1,20 @@
+{{ form_start(form) }}
+
+{{ form_errors(form) }}
+
+{{ form_row(form.name) }}
+
+{{ form_row(form.category) }}
+
+{{ form_row(form.price) }}
+
+{{ form_row(form.description) }}
+
+{{ form_errors(form.image) }}
+{{ form_widget(form.image) }}
+
+{{ form_rest(form) }}
+
+{{ form_row(form.save) }}
+
+{{ form_end(form) }}

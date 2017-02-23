@@ -1,0 +1,20 @@
+{% extends 'FSUserBundle::layout.html.twig' %}
+
+{% trans_default_domain 'FSUserBundle' %}
+
+{% block fos_user_content %}
+
+	{% for message in listMessages %}
+		<div class="col-lg-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					{{ 'message.by'|trans }} {{ message.name }} {{ 'message.on'|trans }} {{ message.date|date('d/m/Y') }}
+				</div>
+				<div class="panel-body">
+					{{ message.content }}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+
+{% endblock fos_user_content %}

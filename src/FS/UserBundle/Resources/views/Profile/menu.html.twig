@@ -1,0 +1,24 @@
+{% trans_default_domain 'FSUserBundle' %}
+
+<div class="list-group">
+	<a href="{{ path('fos_user_profile_show') }}" class="list-group-item {{ macros.activeIfRoute('fos_user_profile_show')}}">
+		{{ 'my.profile'|trans }}
+	</a>
+	<a href="{{ path('fos_user_profile_edit') }}" class="list-group-item {{ macros.activeIfRoute('fos_user_profile_edit')}}">
+		{{ 'profile.modify'|trans }}
+	</a>
+	<a href="{{ path('fs_user_view_orders') }}" class="list-group-item {{ macros.activeIfRoute('fs_user_view_orders')}}">
+		{{ 'my.orders'|trans }}
+	</a>
+	<a href="{{ path('fs_user_reviews') }}" class="list-group-item {{ macros.activeIfRoute('fs_user_reviews')}}">
+		{{ 'my.reviews'|trans }}
+	</a>
+	{% if is_granted('ROLE_ADMIN') %}
+	<a href="{{ path('fs_user_view_messages') }}" class="list-group-item {{ macros.activeIfRoute('fs_user_view_messages')}}">
+		{{ 'received_messages'|trans }}
+	</a>
+	{% endif %}
+	<a href="{{ path('fos_user_security_logout') }}" class="list-group-item">
+		{{ 'logout'|trans }}
+	</a>
+</div>

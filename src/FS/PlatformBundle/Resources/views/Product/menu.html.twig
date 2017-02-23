@@ -1,0 +1,12 @@
+{% trans_default_domain 'FSPlatformBundle' %}
+
+<p class="lead">{{ 'category'|trans }}</p>
+<div class="list-group">
+	{% for category in listCategories %}
+	<a href="{{ path('fs_platform_home', {'page': category.id}) }}" 
+	   class="list-group-item {% if currentCategory == category.id %}active{% endif %}
+	">
+		{{ category.name }}
+	</a>
+	{% endfor %}
+</div>

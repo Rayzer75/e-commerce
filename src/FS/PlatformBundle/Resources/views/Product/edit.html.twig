@@ -1,0 +1,27 @@
+{% extends "FSPlatformBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FSPlatformBundle' %}
+
+{% block title %}
+	{{ 'product.modify'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : 0 })) }}
+{% endblock %}
+
+{% block admin_menu %}
+	<a href="{{ path('fs_platform_add') }}" class="list-group-item">{{ 'product.add'|trans }}</a>
+	<a href="{{ path('fs_platform_edit', { 'id' : product.id }) }}" class="list-group-item active">{{ 'product.modify'|trans }}</a>
+	<a href="{{ path('fs_platform_delete', { 'id' : product.id }) }}" class="list-group-item">{{ 'product.delete'|trans }}</a>
+{% endblock %}
+
+{% block body %}
+
+	<div class="page-header">
+		<h3>{{ 'product.modify'|trans }}</h3>
+	</div>
+	<div class="well">
+		{{ include("FSPlatformBundle:Product:form.html.twig") }}
+	</div>
+{% endblock %}

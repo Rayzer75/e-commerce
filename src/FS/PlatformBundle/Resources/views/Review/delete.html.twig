@@ -1,0 +1,28 @@
+{% extends "FSPlatformBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FSPlatformBundle' %}
+
+{% block title %}
+  {{ 'review.delete'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : 0 })) }}
+{% endblock %}
+
+{% block body %}
+
+  <h2>{{ 'review.delete'|trans }}</h2>
+  
+  <p>
+    {{ 'review.delete_confirmation'|trans }} "{{ review.content }}" ?
+  </p>
+
+  <form action="{{ path('fs_platform_review_delete', {'id': review.id}) }}" method="post">
+    
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}

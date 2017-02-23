@@ -1,0 +1,18 @@
+{# displays 'mark' stars and 'maximum-mark' empty stars #}
+{% macro stars(mark, maximum) %}
+	{% for i in range(1, maximum)%}
+		{% if i <= mark %}
+			<span class="glyphicon glyphicon-star"></span>
+		{% else %}
+			<span class="glyphicon glyphicon-star-empty"></span>
+		{% endif %}
+	{% endfor %}
+{% endmacro %}
+
+{# returns 'active' if the current route is 'route' #}
+{% macro activeIfRoute(route) %}
+	{% if app.request.attributes.get("_route") == route %}
+		active
+	{% endif %}
+{% endmacro %}
+

@@ -1,0 +1,72 @@
+{% extends "FSPlatformBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FSPlatformBundle' %}
+
+{% block title %}
+	{{ 'cart'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : 0 })) }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<div class="row">
+					<div class="col-xs-6">
+						<h5><span class="glyphicon glyphicon-shopping-cart"></span> {{ 'cart'|trans }}</h5>
+					</div>
+					<div class="col-xs-6">
+						<a href="{{ path("fs_platform_home") }}" class="btn btn-primary btn-sm btn-block">
+							<span class="glyphicon glyphicon-share-alt"></span> {{ 'shopping'|trans }}
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			{% if cart is empty %}
+					{{ 'empty.cart'|trans }}
+			{% else %}
+				{% for orderProduct in cart %}
+					<div class="row">
+						<div class="col-xs-2"><img class="img-responsive" src="{{ orderProduct.product.image.url }}">
+						</div>
+						<div class="col-xs-4">
+							<h4 class="product-name"><strong>{{ orderProduct.product.name }}</strong></h4><h4><small>{{ orderProduct.product.description }}</small></h4>
+						</div>
+						<div class="col-xs-6">
+							<div class="col-xs-6 text-right">
+								<h6><strong>{{ orderProduct.product.price }} <span class="text-muted">€</span></strong></h6>
+							</div>
+							{{ render(controller('FSPlatformBundle:Cart:add', {'id': orderProduct.product.id, 'source': 'cart' } ))}}
+							<div class="col-xs-1">
+								<a href="{{ path('fs_cart_delete', {'id': orderProduct.product.id })}}" class="btn btn-danger btn-sm">
+									<span class="glyphicon glyphicon-trash"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					{% if not loop.last %}<hr>{% endif %}
+				{% endfor %}
+				<hr>
+			{% endif %}
+		</div>
+		<div class="panel-footer">
+			<div class="row text-center">
+				<div class="col-xs-9">
+					<h4 class="text-right">{{ 'total'|trans }} <strong>{{ order.amount }} €</strong></h4>
+				</div>
+				<div class="col-xs-3">
+					<a href="{{ path("fs_cart_checkout") }}" class="btn btn-success btn-block {% if cart is empty %}disabled{% endif %}">
+						{{ 'checkout'|trans }}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

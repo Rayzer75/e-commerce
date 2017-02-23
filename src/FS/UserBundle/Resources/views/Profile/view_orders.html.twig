@@ -1,0 +1,57 @@
+{% extends "FSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FSUserBundle' %}
+
+{% block fos_user_content %}
+
+	{% for keyOrder, valueListOrderProducts in listOrderProducts %}
+		<div class="col-lg-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					{{ 'order'|trans }} #{{ keyOrder }} ({{ listOrders[keyOrder].date|date("d/m/Y") }}, {{ listOrders[keyOrder].date|date("H:i:s") }})
+				</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>{{ 'product.category'|trans }}</th>
+									<th>{{ 'product.name'|trans }}</th>
+									<th>{{ 'quantity'|trans }}</th>
+									<th>{{ 'price'|trans }}</th>
+									<th>{{ 'subtotal'|trans }}</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for orderProduct in valueListOrderProducts %}
+									<tr>
+										<td>{{ orderProduct.product.category.name }}</td>
+										<td>{{ orderProduct.product.name }}</td>
+										{% set quantity = orderProduct.quantity %}
+										<td>{{ quantity }}</td>
+										{% set price = orderProduct.initialPrice %}
+										<td>{{ price }} €</td>
+										{% set subtotal = quantity*price %}
+										<td>{{ subtotal }} €</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+					<!-- /.table-responsive -->
+				</div>
+				<!-- /.panel-body -->
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-lg-offset-10">
+							{{ 'total'|trans }} : <strong>{{ listOrders[keyOrder].amount }} € </strong>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.panel -->
+		</div>
+	{% endfor %}
+
+{% endblock fos_user_content %}

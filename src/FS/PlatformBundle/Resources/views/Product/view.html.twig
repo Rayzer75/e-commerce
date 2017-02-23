@@ -1,0 +1,83 @@
+{% extends "FSPlatformBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FSPlatformBundle' %}
+
+{% block title %}
+	{{ product.name }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : product.category.id })) }}
+{% endblock %}
+
+{% block admin_menu %}
+	<a href="{{ path('fs_platform_add') }}" class="list-group-item">{{ 'product.add'|trans }}</a>
+	<a href="{{ path('fs_platform_edit', { 'id' : product.id }) }}" class="list-group-item">{{ 'product.modify'|trans }}</a>
+	<a href="{{ path('fs_platform_delete', { 'id' : product.id }) }}" class="list-group-item">{{ 'product.delete'|trans }}</a>
+{% endblock %}
+
+{% block body %}
+
+	<div class="thumbnail">
+		<img class="img-thumbnail" src="{{ product.image.url }}" alt="{{ product.name }}">
+		<div class="caption-full">
+			<h4 class="pull-right">{{ product.price }} €</h4>
+			<h4>{{ product.name }}</h4>
+			<p>{{ product.description }}</p>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1">
+				{{ render(controller("FSPlatformBundle:Cart:add", {'id': product.id, 'source': 'view' })) }}
+			</div>
+		</div>
+
+		<div class="row">
+			<br />
+			<div class="col-md-12">
+				<div class="ratings">
+					<p class="pull-right">{{ 'review.number'|transchoice(product.nbReviews) }}</p>
+					<p>
+						{% if product.nbReviews > 0 %}
+							{{ macros.stars(product.averageMark, 5) }}
+							{{ 'average.mark'|trans }}
+						{% else %}
+							&nbsp
+						{% endif %}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="well">
+
+
+		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+			<div class="text-right">
+				{{ render(controller("FSPlatformBundle:Review:add", {'id' : product.id })) }}
+			</div>
+			{% if listReviews|length > 0 %}<hr>{% endif %}
+		{% endif %}
+
+		{% for review in listReviews %}
+			<div class="row">
+				<div class="col-md-12">
+					{{ macros.stars(review.mark, 5) }}
+					{{ review.author.username }}
+					<span class="pull-right">{{ review.date|date('d/m/Y') }}</span>
+					<p>{{ review.content }}</p>
+					{% if app.user and review.author.id == app.user.id %}
+						<div class="pull-right">
+							<a href="{{ path('fs_platform_review_edit', { 'id': review.id } ) }}"><span class="glyphicon glyphicon-edit"></span></a>
+							<a href="{{ path('fs_platform_review_delete', { 'id': review.id } ) }}"><span class="glyphicon glyphicon-trash"></span></a>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+			{% if not loop.last %}<hr>{% endif %}
+		{% endfor %}
+
+
+	</div>
+{% endblock %}

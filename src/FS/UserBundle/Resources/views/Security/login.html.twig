@@ -1,0 +1,8 @@
+{% extends 'FSUserBundle::layout.html.twig' %}
+
+{% block menu %}
+{% endblock %}
+
+{% block fos_user_content %}
+    {{ include('FSUserBundle:Security:login_content.html.twig') }}
+{% endblock fos_user_content %}

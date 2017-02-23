@@ -1,0 +1,30 @@
+{% extends "::layout.html.twig" %}
+
+{% trans_default_domain 'FSPlatformBundle' %}
+
+{% block content %}
+
+	<div class="col-md-3">
+		{% block menu %}
+		{% endblock %}
+
+		{% if is_granted('ROLE_ADMIN') %}
+			{% block admin_menu %}
+				<a href="{{ path('fs_platform_add') }}" class="list-group-item">{{ 'product.add'|trans }}</a>
+			{% endblock %}
+		{% endif %}
+	</div>
+
+	<div class="col-md-9">
+		{% for key, messages in app.session.flashbag.all() %}
+			{% for message in messages %}
+				<div class="alert alert-{{ key }}">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endfor %}
+		{% block body %}
+		{% endblock %}
+	</div>
+
+{% endblock %}

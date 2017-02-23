@@ -1,0 +1,17 @@
+<div class="col-xs-{% if source == 'cart' %}3{% else %}2{% endif %}">
+{{ form_start(form) }}
+
+	{{ form_errors(form) }}
+
+	{{ form_widget(form.quantity, {'attr' : {'data' : 1} } ) }}
+</div>
+<div class="col-xs-1">
+	{% if source == 'cart' %}
+	{{ form_widget(form.save, {'attr': {'class': 'btn btn-info btn-sm glyphicon glyphicon-refresh'},
+																					'label' : ' '}) }}
+	{% else %}
+	{{ form_widget(form.save, {'attr': {'class': 'btn btn-success glyphicon glyphicon-shopping-cart'},
+																					'label' : ' '}) }}
+	{% endif %}
+</div>
+{{ form_end(form) }}

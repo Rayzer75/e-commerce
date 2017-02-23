@@ -1,0 +1,41 @@
+{% trans_default_domain 'FSUserBundle' %}
+
+<div class="col-lg-12">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{ 'my.profile'|trans }}</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+                <div class=" col-md-12 col-lg-12 "> 
+					<table class="table">
+						<tbody>
+
+							<tr>
+								<td>{{ 'profile.show.username'|trans }}</td>
+								<td>{{ user.username }}</td>
+							</tr>
+							<tr>
+								<td>{{ 'profile.show.email'|trans }}</td>
+								<td>{{ user.email }}</a></td>
+							</tr>
+							<tr>
+								<td>{{ 'name.last'|trans }}</td>
+								<td>{{ user.lastname }}</td>
+							</tr>
+							<tr>
+								<td>{{ 'name.first'|trans }}</td>
+								<td>{{ user.firstname }}</td>
+							</tr>
+							<tr>
+								<td>{{ 'address'|trans }}</td>
+								<td>{{ user.address }}</td>
+							</tr>
+
+						</tbody>
+					</table>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

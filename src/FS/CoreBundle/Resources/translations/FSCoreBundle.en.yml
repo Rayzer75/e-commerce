@@ -1,0 +1,32 @@
+about_us: About us
+contact_us: Contact us
+CEO: CEO
+    
+message:
+    name: Name
+    email: Email
+    subject: Subject
+    content: Message
+    submit: Submit
+
+message:
+    sent: Your message has been sent!
+    
+about:
+    mission:
+        title: Our mission
+        description: Satisfying our customers is our top priority. For us, the customer is king.
+    large_selection:
+        title: An extensive product selection
+        description: Day by day, our company expands its range of products.
+    free_shipping:
+        title: Shipping costs ?
+        description: We ensure a top quality and free shipping service!
+    customer:
+        protection:
+            title: Customer protection is essential
+            description: We use the most sophisticated technologies to ensure your protection.
+        service:
+            title: Exceptional customer service
+            description: We have the best customer service!
+    team: Our team

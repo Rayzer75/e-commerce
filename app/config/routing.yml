@@ -1,0 +1,41 @@
+fs_core:
+    resource: "@FSCoreBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: en|fr
+
+fs_user:
+    resource: "@FSUserBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: en|fr
+
+fs_platform:
+    resource: "@FSPlatformBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}/platform
+    requirements:
+        _locale: en|fr
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix:  /{_locale}/
+    requirements:
+        _locale: en|fr
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix: /{_locale}/
+    requirements:
+        _locale: en|fr
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /{_locale}/profile
+    requirements:
+        _locale: en|fr
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /{_locale}/register
+    requirements:
+        _locale: en|fr

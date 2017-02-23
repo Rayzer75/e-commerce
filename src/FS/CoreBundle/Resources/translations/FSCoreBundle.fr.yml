@@ -1,0 +1,33 @@
+about_us: À propos
+contact_us: Contactez-nous
+CEO: PDG
+
+message:
+    name: Nom
+    email: Email
+    subject: Sujet
+    content: Message
+    submit: Envoyer
+
+message:
+    sent: Votre message a été envoyé !
+    
+about:
+    mission:
+        title: Notre mission
+        description: Notre priorité est de satisfaire nos clients. Pour nous, le client est roi.
+    large_selection:
+        title: Une large sélection de produits
+        description: Notre catalogue s'enrichit de jour en jour.
+    free_shipping:
+        title: Des frais de livraison ?
+        description: Nous assurons un service de livraison de haute qualité, gratuite !
+    customer:
+        protection:
+            title: La protection de nos clients est primordiale
+            description: Nous utilisons les technologies les plus sophistiquées pour assurer votre protection.
+        service:
+            title: Un service client de qualité
+            description: Nous avons le meilleur service client !
+    team: Notre équipe
+        

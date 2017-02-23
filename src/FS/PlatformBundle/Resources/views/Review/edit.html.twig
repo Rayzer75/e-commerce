@@ -1,0 +1,17 @@
+{% extends "FSPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  {{ 'review.modify'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : 0 })) }}
+{% endblock %}
+
+{% block body %}
+
+  <h2>{{ 'review.modify'|trans }}</h2>
+
+  {{ include("FSPlatformBundle:Review:review_form.html.twig") }}
+
+{% endblock %}

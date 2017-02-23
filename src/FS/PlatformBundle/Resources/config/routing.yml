@@ -1,0 +1,78 @@
+fs_platform_home:
+    path:      /{page}
+    defaults:
+        _controller: FSPlatformBundle:Product:index
+        page: 1
+    requirements:
+        page: \d*
+    
+fs_platform_view:
+    path:      /product/{id}
+    defaults:
+        _controller: FSPlatformBundle:Product:view
+    requirements:
+        id: \d+
+    
+fs_platform_add:
+    path:      /add
+    defaults:
+        _controller: FSPlatformBundle:Product:add
+
+fs_platform_edit:
+    path:      /edit/{id}
+    defaults:
+        _controller: FSPlatformBundle:Product:edit
+    requirements:
+        id: \d+
+
+fs_platform_delete:
+    path:      /delete/{id}
+    defaults:
+        _controller: FSPlatformBundle:Product:delete
+    requirements:
+        id: \d+
+        
+fs_platform_review_add:
+    path:      /review/add/{id}
+    defaults:
+        _controller: FSPlatformBundle:Review:add
+    requirements:
+        id: \d+
+        
+fs_platform_review_edit:
+    path:      /review/edit/{id}
+    defaults:
+        _controller: FSPlatformBundle:Review:edit
+    requirements:
+        id: \d+
+        
+fs_platform_review_delete:
+    path:      /review/delete/{id}
+    defaults:
+        _controller: FSPlatformBundle:Review:delete
+    requirements:
+        id: \d+
+
+fs_cart_view:
+    path: /cart
+    defaults:
+        _controller: FSPlatformBundle:Cart:view
+
+fs_cart_add:
+    path: /cart/add/{id}
+    defaults:
+        _controller: FSPlatformBundle:Cart:add
+    requirements:
+        id: \d+
+        
+fs_cart_delete:
+    path: /cart/delete/{id}
+    defaults:
+        _controller: FSPlatformBundle:Cart:delete
+    requirements:
+        id: \d+
+        
+fs_cart_checkout:
+    path: /checkout
+    defaults:
+        _controller: FSPlatformBundle:Cart:checkout

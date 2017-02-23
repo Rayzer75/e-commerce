@@ -1,0 +1,40 @@
+{% extends "FSPlatformBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FSPlatformBundle' %}
+
+{% block title %}
+	{{ 'product.delete'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : 0 })) }}
+{% endblock %}
+
+{% block admin_menu %}
+	<a href="{{ path('fs_platform_add') }}" class="list-group-item">{{ 'product.add'|trans }}</a>
+	<a href="{{ path('fs_platform_edit', { 'id' : product.id }) }}" class="list-group-item">{{ 'product.modify'|trans }}</a>
+	<a href="{{ path('fs_platform_delete', { 'id' : product.id }) }}" class="list-group-item active">{{ 'product.delete'|trans }}</a>
+{% endblock %}
+
+{% block body %}
+
+	<div class="page-header">
+		<h3>{{ 'product.delete'|trans }}</h3>
+	</div>
+
+	<p>
+		{{ 'product.delete_confirmation'|trans }} "{{ product.name }}" ?
+	</p>
+
+	<form action="{{ path('fs_platform_delete', {'id': product.id}) }}" method="post">
+		<a href="{{ path('fs_platform_view', {'id': product.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			{{ 'product.back'|trans }}
+		</a>
+		
+		<input type="submit" value="{{'delete'|trans }}" class="btn btn-danger" />
+		
+		{{ form_rest(form) }}
+	</form>
+
+{% endblock %}

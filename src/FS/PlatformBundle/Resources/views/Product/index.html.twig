@@ -1,0 +1,43 @@
+{% extends "FSPlatformBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FSPlatformBundle' %}
+
+{% block title %}
+	{{ 'home'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : page })) }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+
+		{% for product in listProducts %}
+			<div class="col-sm-4 col-lg-4 col-md-4">
+				<div class="thumbnail">
+					<img class="img-thumbnail" src="{{ product.image.url }}" alt="{{ product.name }}"> {# http://placehold.it/320x150 #}
+					<div class="caption">
+						<h4 class="pull-right">{{ product.price }} €</h4>
+						<h4><a href="{{ path('fs_platform_view', {'id': product.id}) }}">{{ product.name }}</a>
+						</h4>
+						<p>{{ product.description }}</p>
+					</div>
+					<div class="ratings">
+						<p class="pull-right">{{ 'review.number'|transchoice(product.nbReviews) }}</p>
+						<p>
+							{% if product.nbReviews > 0 %}
+								{{ macros.stars(product.averageMark, 5) }}
+							{% else %}
+								&nbsp
+							{% endif %}
+						</p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+
+	</div>
+
+{% endblock %}

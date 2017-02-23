@@ -1,0 +1,54 @@
+product:
+    add: Ajouter un produit
+    delete: Supprimer le produit
+    delete_confirmation: Êtes-vous certain de vouloir supprimer le produit 
+    modify: Modifier le produit
+    back: Retour au produit
+    not_found: Le produit n°%id% n'existe pas !
+    added: Le produit a été ajouté !
+    updated: Le produit a été mis à jour !
+    deleted: Le produit a été supprimé !
+    quantity:
+        updated: La quantité a été mise à jour !
+        added: Le produit a été ajouté à votre panier !
+        removed: Le produit a été supprimé de votre panier !
+        not_found: Le produit n°%id% n'est pas dans votre panier.
+    name: Nom
+    price: Prix
+    description: Description
+    category: Catégorie
+    submit: Envoyer
+        
+order:
+    placed: Votre commande a été enregistrée !
+
+review:
+    review: Commentaire
+    add: Ajouter un commentaire
+    delete: Supprimer le commentaire
+    delete_confirmation: Êtes-vous certain de vouloir supprimer le commentaire
+    modify: Modifier le commentaire
+    added: Votre commentaire a été ajouté !
+    not_found: Le commentaire n°%id% n'existe pas !
+    access_denied: Vous ne pouvez pas modifier le commentaire n°%id%.
+    updated: Le commentaire a été mis à jour !
+    deleted: Le commentaire a été supprimé !
+    number: "[0,1]%count% commentaire|[2,+Inf]%count% commentaires"
+    
+page:
+    not_found: Page n°%page% non trouvée !
+    
+image:
+    link: Lien de l'image
+
+cart: Panier
+shopping: Retourner à la boutique
+empty.cart : Votre panier est vide !
+checkout : Payer
+total: Total
+delete: Supprimer
+home: Accueil
+category: Catégorie
+average:
+    mark: Note moyenne
+mark: Note

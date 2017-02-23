@@ -1,0 +1,19 @@
+{% extends "FSPlatformBundle:Product:view.html.twig" %}
+
+{% block title %}
+	{{ product.name }} - {{ parent() }}
+{% endblock %}
+
+{% block menu %}
+	{{ render(controller("FSPlatformBundle:Product:menu", {'currentCategory' : product.category.id })) }}
+{% endblock %}
+
+{% block admin_menu %}
+	<a href="{{ path('fs_platform_edit', { 'id' : product.id }) }}" class="list-group-item">Modifier le produit</a>
+{% endblock %}
+
+{% block quantity_form %}
+	{{ include("FSPlatformBundle:Product:quantity_form.html.twig") }}
+{% endblock %}
+
+
