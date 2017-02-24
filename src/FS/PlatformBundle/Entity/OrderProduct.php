@@ -70,7 +70,7 @@ class OrderProduct
 
   function setQuantity($quantity) {
 	  $this->quantity = $quantity;
-	  $this->amount = $quantity*$this->product->getPrice();
+	  $this->amount = $quantity*$this->initialPrice;
   }
 
   function setOrder($order) {
